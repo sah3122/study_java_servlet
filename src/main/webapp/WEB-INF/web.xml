@@ -4,6 +4,19 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+    <filter-name>MyFilter</filter-name>
+    <filter-class>me.study.MyFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>MyFilter</filter-name>
+    <servlet-name>hello</servlet-name>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>me.study.MyListener</listener-class>
+  </listener>
   <servlet>
     <servlet-name>hello</servlet-name>
     <servlet-class>me.study.HelloServlet</servlet-class>
