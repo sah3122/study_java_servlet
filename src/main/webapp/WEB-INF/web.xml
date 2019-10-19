@@ -15,30 +15,26 @@
     <param-value>me.study.AppConfig</param-value>
   </context-param>
 
-  <filter>
-    <filter-name>MyFilter</filter-name>
-    <filter-class>me.study.MyFilter</filter-class>
-  </filter>
-
-  <filter-mapping>
-    <filter-name>MyFilter</filter-name>
-    <servlet-name>hello</servlet-name>
-  </filter-mapping>
-
-<!--  <listener>-->
-<!--    <listener-class>me.study.MyListener</listener-class>-->
-<!--  </listener>-->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-  
+
   <servlet>
-    <servlet-name>hello</servlet-name>
-    <servlet-class>me.study.HelloServlet</servlet-class>
+    <servlet-name>app</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextClass</param-name>
+      <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </init-param>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>me.study.WebConfig</param-value>
+    </init-param>
   </servlet>
-  
+
   <servlet-mapping>
-    <servlet-name>hello</servlet-name>
-    <url-pattern>hello</url-pattern>
+    <servlet-name>app</servlet-name>
+    <url-pattern>/app/*</url-pattern>
   </servlet-mapping>
+  
 </web-app>
