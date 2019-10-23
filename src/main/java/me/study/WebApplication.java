@@ -16,6 +16,8 @@ public class WebApplication implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        // DispatcherServlet에 적절한 Mvc설정을 위하여 HandlerMaping / HandlerAdapter
+        context.setServletContext(servletContext); // EnableWebMvc 사용하기 위해 설정해주어야 한다.
         context.register(WebConfig.class);
         context.refresh();
 
